@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="examen_godot"
+run/main_scene="uid://43mf63qxsx6w"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

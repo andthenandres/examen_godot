@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://43mf63qxsx6w"]
+
+[ext_resource type="Texture2D" uid="uid://bfewmtp1uwsfx" path="res://icon.svg" id="1_wmjee"]
+[ext_resource type="PackedScene" uid="uid://b5dh6tweu7dra" path="res://Escenas/personaje.tscn" id="2_ripk3"]
+[ext_resource type="PackedScene" uid="uid://cc4qdyg8l0ue6" path="res://Escenas/enemigo.tscn" id="3_pboj7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
+size = Vector2(1402, 117)
+
+[node name="Node2D" type="Node2D" unique_id=1789049534]
+
+[node name="Suelo" type="StaticBody2D" parent="." unique_id=1939523149]
+position = Vector2(526, 580)
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo" unique_id=2140408022]
+position = Vector2(140, 0.5)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo" unique_id=1505482306]
+position = Vector2(140.49994, 0)
+scale = Vector2(10.976563, 1)
+texture = ExtResource("1_wmjee")
+
+[node name="Personaje" parent="." unique_id=494298785 instance=ExtResource("2_ripk3")]
+position = Vector2(607, 348)
+
+[node name="Enemigo" parent="." unique_id=72826444 instance=ExtResource("3_pboj7")]
+position = Vector2(1155, 451)

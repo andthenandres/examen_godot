@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cc4qdyg8l0ue6"]
+
+[ext_resource type="Script" uid="uid://ccly6hksdlr2c" path="res://enemigo.gd" id="1_24lda"]
+[ext_resource type="Texture2D" uid="uid://bfewmtp1uwsfx" path="res://icon.svg" id="2_1hbjf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
+size = Vector2(123, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aui74"]
+size = Vector2(44, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vicex"]
+size = Vector2(120, 20)
+
+[node name="Node2D" type="Node2D" unique_id=72826444]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=187807489]
+script = ExtResource("1_24lda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1608727062]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=2021676509]
+texture = ExtResource("2_1hbjf")
+
+[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D" unique_id=1845106820]
+target_position = Vector2(-203, 1)
+
+[node name="AreaIzq" type="Area2D" parent="CharacterBody2D" unique_id=204115705]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AreaIzq" unique_id=595171236]
+position = Vector2(-79, -1.5)
+shape = SubResource("RectangleShape2D_aui74")
+
+[node name="AreaSuperior" type="Area2D" parent="CharacterBody2D" unique_id=1920673168]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AreaSuperior" unique_id=1786429529]
+position = Vector2(3, -71)
+shape = SubResource("RectangleShape2D_vicex")
+
+[connection signal="child_entered_tree" from="CharacterBody2D/RayCast2D" to="CharacterBody2D" method="_on_ray_cast_2d_child_entered_tree"]
+[connection signal="body_entered" from="CharacterBody2D/AreaIzq" to="CharacterBody2D" method="_on_area_izq_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D/AreaSuperior" to="CharacterBody2D" method="_on_area_superior_body_entered"]
