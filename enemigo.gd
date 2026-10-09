@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_izq_body_entered(body: Node2D) -> void:
 	get_tree().quit()
+	print("Has muerto")
 
 
 func _on_area_superior_body_entered(body: Node2D) -> void:
