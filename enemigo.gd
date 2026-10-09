@@ -11,8 +11,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	velocity.x = -SPEED
-	
-
+	if($RayCast2DV.is_colliding() and velocity.x == -SPEED):
+		velocity.x = (-SPEED * 2)
 	move_and_slide()
 
 
@@ -22,7 +22,3 @@ func _on_area_izq_body_entered(body: Node2D) -> void:
 
 func _on_area_superior_body_entered(body: Node2D) -> void:
 	queue_free()
-
-
-func _on_ray_cast_2d_body_entered_tree(node: Node) -> void:
-	velocity.x = 1000

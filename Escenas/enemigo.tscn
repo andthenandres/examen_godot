@@ -24,8 +24,9 @@ shape = SubResource("RectangleShape2D_lfkbx")
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=2021676509]
 texture = ExtResource("2_1hbjf")
 
-[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D" unique_id=1845106820]
-target_position = Vector2(-203, 1)
+[node name="RayCast2DV" type="RayCast2D" parent="CharacterBody2D" unique_id=1845106820]
+target_position = Vector2(-210, 1)
+collision_mask = 2
 
 [node name="AreaIzq" type="Area2D" parent="CharacterBody2D" unique_id=204115705]
 collision_layer = 4
@@ -43,6 +44,6 @@ collision_mask = 2
 position = Vector2(3, -71)
 shape = SubResource("RectangleShape2D_vicex")
 
-[connection signal="child_entered_tree" from="CharacterBody2D/RayCast2D" to="CharacterBody2D" method="_on_ray_cast_2d_child_entered_tree"]
+[connection signal="child_entered_tree" from="CharacterBody2D/RayCast2DV" to="CharacterBody2D" method="_on_ray_cast_2d_child_entered_tree"]
 [connection signal="body_entered" from="CharacterBody2D/AreaIzq" to="CharacterBody2D" method="_on_area_izq_body_entered"]
 [connection signal="body_entered" from="CharacterBody2D/AreaSuperior" to="CharacterBody2D" method="_on_area_superior_body_entered"]
